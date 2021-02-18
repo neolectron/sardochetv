@@ -1,0 +1,11 @@
+html,
+body,
+#__next {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#__next {
+  background-image: linear-gradient(135deg, #684ca0 35%, #1c4ca0 100%);
+}
