@@ -21,5 +21,6 @@ module.exports = {
   },
   rules: {
     "react/react-in-jsx-scope": "off", // React is no longer needed in scope
+    "react/prop-types": "off"
   }
 }
