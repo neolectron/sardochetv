@@ -1,0 +1,9 @@
+{
+  "prettier.requireConfig": true,
+  "prettier.singleQuote": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
+}

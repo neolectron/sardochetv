@@ -1,1 +1,4 @@
-export default () => <div>Hello World.</div>
+const IndexPage = () => <div>Hello World.</div>
+
+export default IndexPage;
+
