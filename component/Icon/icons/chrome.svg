@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="16 16 225 225">
+  <defs>
+    <radialGradient id="c" cx=".5" cy="0">
+      <stop offset="0" stop-color="#f06b59"/>
+      <stop offset="1" stop-color="#df2227"/>
+    </radialGradient>
+    <radialGradient id="d" cx=".7" cy=".3" r=".8">
+      <stop offset=".7" stop-color="#4cb749"/>
+      <stop offset="1" stop-color="#388b41"/>
+    </radialGradient>
+    <radialGradient id="e" cx=".4" cy=".3" r=".8">
+      <stop offset=".6" stop-color="#FCD209"/>
+      <stop offset=".7" stop-color="#f7c616"/>
+      <stop offset="1" stop-color="#bc821e"/>
+    </radialGradient>
+    <radialGradient id="a" cx=".5" cy="0" r="1" spreadMethod="pad">
+      <stop offset=".1" stop-color="#7FB3DF"/>
+      <stop offset=".9" stop-color="#0F5B94"/>
+    </radialGradient>
+    <radialGradient id="b" cx=".5" cy="0" r="1">
+      <stop offset="0" stop-color="#F6F0EE"/>
+      <stop offset="1" stop-color="#ddd"/>
+    </radialGradient>
+  </defs>
+  <path fill-opacity=".1" d="M198 148a70 70 0 00-140 0h20a50 50 0 01100 0"/>
+  <circle cx="127.5" cy="127.6" r="45" fill="url(#a)" stroke="url(#b)" stroke-width="9"/>
+  <path fill="url(#c)" d="M228 78A112 112 0 0035 65l45 78a50 50 0 0147-65"/>
+  <path fill="url(#d)" d="M35 65a112 112 0 0084 174l47-80a50 50 0 01-86-16"/>
+  <path fill="url(#e)" d="M119 239A112 112 0 00228 78H127a50 50 0 0139 81"/>
+  <path d="M35 65l45 78a50 50 0 012-34L37 62m82 177l47-80a50 50 0 01-29 17l-20 63M228 78H127a50 50 0 0139 19l64-16" opacity=".1"/>
+</svg>
