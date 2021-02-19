@@ -13,7 +13,13 @@ const AddonPage = () => (
           <div className="flex-grow flex flex-col">
             <div className="text-xl">Sardalert - Chrome</div>
             <div className="flex-grow text-gray-600">(brave également)</div>
-            <Button text="Télécharger !" className="text-xs" />
+            <Button
+              asAnchor
+              href="https://chrome.google.com/webstore/detail/sardalert/elnpfaoipdfdhikjacbpcfhpnehjjaii"
+              target="_blank"
+              text="Télécharger !"
+              className="text-xs"
+            />
           </div>
         </div>
       </Card>
@@ -23,7 +29,13 @@ const AddonPage = () => (
           <Icon name="firefox" className="h-16 sm:h-24" />
           <div className="flex-grow flex flex-col">
             <div className="text-xl flex-grow">Sardalert - Firefox</div>
-            <Button text="Télécharger !" className="text-xs" />
+            <Button
+              asAnchor
+              href="https://addons.mozilla.org/en-US/firefox/addon/sardalert/"
+              target="_blank"
+              text="Télécharger !"
+              className="text-xs"
+            />
           </div>
         </div>
       </Card>
