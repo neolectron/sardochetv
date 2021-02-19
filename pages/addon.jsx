@@ -15,6 +15,7 @@ const AddonPage = () => (
             <div className="flex-grow text-gray-600">(brave également)</div>
             <Button
               asAnchor
+              reversed
               href="https://chrome.google.com/webstore/detail/sardalert/elnpfaoipdfdhikjacbpcfhpnehjjaii"
               target="_blank"
               text="Télécharger !"
@@ -31,6 +32,7 @@ const AddonPage = () => (
             <div className="text-xl flex-grow">Sardalert - Firefox</div>
             <Button
               asAnchor
+              reversed
               href="https://addons.mozilla.org/en-US/firefox/addon/sardalert/"
               target="_blank"
               text="Télécharger !"

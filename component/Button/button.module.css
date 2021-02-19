@@ -1,0 +1,7 @@
+.button {
+  @apply border-purple-600 text-purple-600 hover:text-white hover:bg-purple-600;
+}
+
+.button-reversed {
+  @apply border-white text-white hover:text-purple-600 hover:bg-white;
+}
