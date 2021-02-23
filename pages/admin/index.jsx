@@ -1,5 +1,5 @@
-import Layout from '../../component/Layout/Layout.jsx';
-import Button from '../../component/Button/Button.jsx';
+import Layout from '../../components/Layout/Layout.jsx';
+import Button from '../../components/Button/Button.jsx';
 
 import { signIn, signOut, useSession } from 'next-auth/client';
 

@@ -1,7 +1,7 @@
-import Layout from '../component/Layout/Layout.jsx';
-import Card from '../component/Card/Card.jsx';
-import Icon from '../component/Icon/Icon.jsx';
-import Button from '../component/Button/Button.jsx';
+import Layout from '../components/Layout/Layout.jsx';
+import Card from '../components/Card/Card.jsx';
+import Icon from '../components/Icon/Icon.jsx';
+import Button from '../components/Button/Button.jsx';
 
 const AddonPage = () => (
   <Layout className="items-center">
