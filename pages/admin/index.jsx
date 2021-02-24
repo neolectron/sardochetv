@@ -8,16 +8,26 @@ const adminPage = ({ adminList }) => {
 
   if (!session) {
     return (
-      <Layout>
-        <Button icon="twitch" onClick={() => signIn('twitch')} text="Login !" />
+      <Layout className="items-center justify-center">
+        <Button
+          reversed
+          icon="twitch"
+          onClick={() => signIn('twitch')}
+          text="Login !"
+        />
       </Layout>
     );
   }
 
   return (
-    <Layout>
+    <Layout menu user={session.user}>
       You are logged-in.
-      <Button icon="twitch" onClick={() => signOut('twitch')} text="Logout !" />
+      <Button
+        reversed
+        icon="twitch"
+        onClick={() => signOut('twitch')}
+        text="Logout !"
+      />
     </Layout>
   );
 };
