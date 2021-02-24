@@ -31,9 +31,9 @@ const Menu = ({ children = null, user = null }) => {
         <div className="flex flex-col">
           <div
             className="h-28 bg-cover flex justify-center items-center"
-            style={{ backgroundImage: 'url(bg.png)' }}
+            style={{ backgroundImage: 'url("/bg.png")' }}
           >
-            <img src="tasse.png" className="h-12 mr-4" alt="logo brand" />
+            <img src="/tasse.png" className="h-12 mr-4" alt="logo brand" />
             <p className="text-white font-bold text-2xl text-shadow select-none">
               Sardoche.tv
             </p>
