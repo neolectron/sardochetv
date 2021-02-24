@@ -2,6 +2,8 @@ import { useRef, useState } from 'react';
 import Icon from '../Icon/Icon.jsx';
 import Button from '../Button/Button.jsx';
 
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useClickAway } from 'react-use';
 import { signOut } from 'next-auth/client';
 
@@ -63,4 +65,23 @@ const Menu = ({ children = null, user = null }) => {
   );
 };
 
-export default Menu;
+const Item = ({ href, icon, text }) => {
+  const { asPath } = useRouter();
+
+  return (
+    <Link href={href}>
+      <a
+        className={`h-14 p-4 pl-10 flex items-center transform transition-transform
+        origin-left border-l-8 border-transparent hover:border-orange hover:bg-yellow-100 hover:scale-110 ${
+          href === asPath ? 'border-orange' : ''
+        }`}
+      >
+        <Icon name={icon} height="1.5em" className="mr-5" />
+        {text}
+      </a>
+    </Link>
+  );
+};
+Menu.Item = Item;
+
+export { Menu as default, Item };
