@@ -16,13 +16,19 @@ const Button = ({
   ) : null;
 
   return asAnchor ? (
-    <a {...rest} className={`${btn} ${reversed ? btnRev : btnNormal}`}>
+    <a
+      {...rest}
+      className={`${btn} ${reversed ? btnRev : btnNormal} ${className}`}
+    >
       {swaped || displayedIcon}
       {text || children}
       {swaped && displayedIcon}
     </a>
   ) : (
-    <button {...rest} className={`${btn} ${reversed ? btnRev : btnNormal}`}>
+    <button
+      {...rest}
+      className={`${btn} ${reversed ? btnRev : btnNormal} ${className}`}
+    >
       {swaped || displayedIcon}
       {text || children}
       {swaped && displayedIcon}
