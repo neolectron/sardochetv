@@ -16,6 +16,10 @@ const Menu = ({ children = null, user = null }) => {
   useClickAway(menuRef, close);
   const openedClass = open ? 'block' : 'hidden';
 
+  const currentHour = new Date().getHours();
+  const isDay = currentHour > 7 && currentHour < 23;
+  const backgroundDayTime = isDay ? '/bg.png' : '/bg-night.png';
+
   return (
     <nav
       ref={menuRef}
@@ -33,7 +37,7 @@ const Menu = ({ children = null, user = null }) => {
         <div className="flex flex-col">
           <div
             className="h-28 bg-cover flex justify-center items-center"
-            style={{ backgroundImage: 'url("/bg.png")' }}
+            style={{ backgroundImage: `url(${backgroundDayTime})` }}
           >
             <img src="/tasse.png" className="h-12 mr-4" alt="logo brand" />
             <p className="text-white font-bold text-2xl text-shadow select-none">
