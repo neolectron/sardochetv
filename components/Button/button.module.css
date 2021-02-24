@@ -1,7 +1,11 @@
-.button {
+.btn {
+  @apply px-4 py-1 w-max flex items-center font-semibold rounded-full border cursor-pointer focus:outline-none transform transition-transform hover:scale-105 whitespace-nowrap;
+}
+
+.btnNormal {
   @apply border-purple-600 text-purple-600 hover:text-white hover:bg-purple-600;
 }
 
-.button-reversed {
+.btnRev {
   @apply border-white text-white hover:text-purple-600 hover:bg-white;
 }

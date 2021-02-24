@@ -1,12 +1,5 @@
 import Icon from '../Icon/Icon.jsx';
-import styles from './button.module.css';
-
-const Wrap = ({ asAnchor, children, ...rest }) =>
-  asAnchor ? (
-    <a {...rest}>{children}</a>
-  ) : (
-    <button {...rest}>{children}</button>
-  );
+import { btn, btnNormal, btnRev } from './button.module.css';
 
 const Button = ({
   icon = null,
@@ -22,19 +15,18 @@ const Button = ({
     <Icon name={icon} height="1em" width="1em" className="mr-2" />
   ) : null;
 
-  return (
-    <Wrap
-      asAnchor={asAnchor}
-      className={`w-max flex items-center font-semibold rounded-full px-4 py-1 border cursor-pointer
-      focus:outline-none transform transition-transform hover:scale-105 whitespace-nowrap ${
-        reversed ? styles.button : styles['button-reversed']
-      } ${className}`}
-      {...rest}
-    >
+  return asAnchor ? (
+    <a {...rest} className={`${btn} ${reversed ? btnRev : btnNormal}`}>
       {swaped || displayedIcon}
       {text || children}
       {swaped && displayedIcon}
-    </Wrap>
+    </a>
+  ) : (
+    <button {...rest} className={`${btn} ${reversed ? btnRev : btnNormal}`}>
+      {swaped || displayedIcon}
+      {text || children}
+      {swaped && displayedIcon}
+    </button>
   );
 };
 
