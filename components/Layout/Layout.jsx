@@ -9,7 +9,9 @@ const Layout = ({ menu = false, children, className = '', ...rest }) => (
         <Menu.Item href="/admin/bots" icon="bot" text="Sardbot" />
       </Menu>
     )}
-    <main className={`flex-grow h-full flex flex-col ${className}`}>
+    <main
+      className={`flex-1 flex-shrink-0 flex flex-col overflow-y-auto ${className}`}
+    >
       {children}
     </main>
   </div>
