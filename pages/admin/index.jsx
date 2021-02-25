@@ -1,7 +1,7 @@
 import Layout from '../../components/Layout/Layout.jsx';
 import Button from '../../components/Button/Button.jsx';
 
-import { signIn, signOut, useSession } from 'next-auth/client';
+import { signIn, useSession } from 'next-auth/client';
 
 const adminPage = ({ adminList }) => {
   const [session, loading] = useSession();
@@ -19,17 +19,7 @@ const adminPage = ({ adminList }) => {
     );
   }
 
-  return (
-    <Layout menu user={session.user}>
-      You are logged-in.
-      <Button
-        reversed
-        icon="twitch"
-        onClick={() => signOut('twitch')}
-        text="Logout !"
-      />
-    </Layout>
-  );
+  return <Layout menu user={session.user}></Layout>;
 };
 
 export async function getStaticProps() {
