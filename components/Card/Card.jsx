@@ -4,10 +4,10 @@ const Card = ({
   title = null,
   className = '',
 }) => (
-  <div className={`p-4 bg-white rounded-md break-words w-max ${className}`}>
-    {title && (
-      <div className="pb-4 font-semibold text-lg text-center">{title}</div>
-    )}
+  <div
+    className={`p-4 bg-white shadow-2xl transition-transform transform break-words ${className}`}
+  >
+    {title && <div className="mb-4 text-xl font-bold">{title}</div>}
     {children || text}
   </div>
 );
