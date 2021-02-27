@@ -1,0 +1,22 @@
+.input {
+  transition: all 0.2s ease-in-out;
+}
+
+.input::placeholder {
+  color: transparent;
+}
+
+.label {
+  transition: all 0.2s ease-out;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.input:focus + .label,
+.input:active + .label,
+.input:not(:placeholder-shown) + .label {
+  transform: translateY(-110%);
+  font-size: 0.75rem;
+  color: #667eea;
+}
