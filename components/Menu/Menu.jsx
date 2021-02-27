@@ -17,7 +17,7 @@ const Menu = ({ children = null, user = null }) => {
   const openedClass = open ? 'block' : 'hidden';
 
   const currentHour = new Date().getHours();
-  const isDay = currentHour > 7 && currentHour < 23;
+  const isDay = currentHour > 7 && currentHour < 21;
   const backgroundDayTime = isDay ? '/bg.png' : '/bg-night.png';
 
   return (
