@@ -2,6 +2,7 @@ import Menu from '../Menu/Menu.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
 import Button from '../Button/Button.jsx';
 import { useSession, signIn } from 'next-auth/client';
+import { ToastContainer } from 'react-toastify';
 
 const Layout = ({
   menu = false,
@@ -48,9 +49,12 @@ const Layout = ({
         </Menu>
       )}
       <main
-        className={`flex-1 flex-shrink-0 flex flex-col overflow-y-auto ${className}`}
+        className={`relative flex-1 flex-shrink-0 flex flex-col overflow-y-auto ${className}`}
       >
         {children}
+        <div className="absolute top-10 right-10">
+          <ToastContainer progressClassName="bg-orange" />
+        </div>
       </main>
     </div>
   );

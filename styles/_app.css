@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  @import 'react-toastify/dist/ReactToastify.css';
+}
+
+@layer utilities {
+  .bg-orange {
+    background: #ff9e3b;
+  }
+}
+
 html,
 body,
 #__next {
