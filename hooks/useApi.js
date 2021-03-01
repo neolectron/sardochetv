@@ -6,7 +6,9 @@ const stringifyObject = (obj) =>
     ? JSON.stringify(obj)
     : obj;
 
-const useApi = () => {
+const noop = () => {};
+
+const useApi = ({ onSuccess = noop, onError = noop }) => {
   const [session] = useSession();
   return useAsyncFn(
     async (endpoint, options) =>
@@ -18,7 +20,16 @@ const useApi = () => {
           ...options.headers,
           ...(session?.access_token && { access_token: session.access_token }),
         },
-      }).then((res) => res.json()),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          onSuccess(json);
+          return json;
+        })
+        .catch((e) => {
+          onError(e);
+          throw new Error(e);
+        }),
     [session]
   );
 };
