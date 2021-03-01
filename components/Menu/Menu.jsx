@@ -27,7 +27,7 @@ const Menu = ({ children = null, user = null }) => {
     >
       <button
         onClick={() => setOpen((x) => !x)}
-        className="md:hidden h-14 pl-2 focus:outline-none"
+        className="pl-2 md:hidden h-14 focus:outline-none"
       >
         <Icon name="burger" height="32px" />
       </button>
@@ -36,21 +36,21 @@ const Menu = ({ children = null, user = null }) => {
       >
         <div className="flex flex-col">
           <div
-            className="h-28 bg-cover flex justify-center items-center"
+            className="flex items-center justify-center bg-cover h-28"
             style={{ backgroundImage: `url(${backgroundDayTime})` }}
           >
             <img src="/tasse.png" className="h-12 mr-4" alt="logo brand" />
-            <p className="text-white font-bold text-2xl text-shadow select-none">
+            <p className="text-2xl font-bold text-white select-none text-shadow">
               Sardoche.tv
             </p>
           </div>
           {children}
         </div>
         {user && (
-          <div className="h-14 p-2 border-t border-gray-300 flex items-center">
+          <div className="flex items-center p-2 border-t border-gray-300 h-14">
             <img
               src={user.image}
-              alt="Image d'avatar"
+              alt="avatar"
               className="h-full mr-4 rounded"
             />
             <p className="truncate" title={user.name}>
@@ -60,7 +60,7 @@ const Menu = ({ children = null, user = null }) => {
               onClick={() => signOut('twitch')}
               icon="logout"
               text="Logout"
-              className="text-sm ml-auto"
+              className="ml-auto text-sm"
             />
           </div>
         )}
@@ -71,13 +71,14 @@ const Menu = ({ children = null, user = null }) => {
 
 const Item = ({ href, icon, text }) => {
   const { asPath } = useRouter();
+  const samePath = href === asPath;
 
   return (
     <Link href={href}>
       <a
         className={`h-14 p-4 pl-10 flex items-center transform transition-transform
         origin-left border-l-8 border-transparent hover:border-orange hover:bg-yellow-100 hover:scale-110 ${
-          href === asPath ? 'border-orange' : ''
+          samePath ? 'border-orange' : ''
         }`}
       >
         <Icon name={icon} height="1.5em" className="mr-5" />
