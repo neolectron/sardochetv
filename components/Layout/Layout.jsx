@@ -1,5 +1,6 @@
 import Menu from '../Menu/Menu.jsx';
 import Spinner from '../Spinner/Spinner.jsx';
+import Button from '../Button/Button.jsx';
 import { useSession, signIn } from 'next-auth/client';
 
 const Layout = ({
@@ -7,30 +8,33 @@ const Layout = ({
   checkauth = false,
   children,
   className = '',
-  ...rest
 }) => {
   const [session, loading] = useSession();
 
   if (checkauth && loading) {
     return (
-      <Spinner
-        type="Puff"
-        color="#00BFFF"
-        height={100}
-        width={100}
-        timeout={3000}
-      />
+      <main className="flex items-center justify-center w-full h-full">
+        <Spinner
+          type="Puff"
+          color="#00BFFF"
+          height={100}
+          width={100}
+          timeout={3000}
+        />
+      </main>
     );
   }
 
   if (checkauth && !session?.user) {
     return (
-      <Button
-        reversed
-        icon="twitch"
-        onClick={() => signIn('twitch')}
-        text="Login !"
-      />
+      <main className="flex items-center justify-center w-full h-full">
+        <Button
+          reversed
+          icon="twitch"
+          onClick={() => signIn('twitch')}
+          text="Login !"
+        />
+      </main>
     );
   }
 
