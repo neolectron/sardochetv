@@ -15,23 +15,25 @@ const Button = ({
     <Icon name={icon} height="1em" width="1em" className="mr-2" />
   ) : null;
 
-  return asAnchor ? (
-    <a
-      {...rest}
-      className={`${btn} ${reversed ? btnRev : btnNormal} ${className}`}
-    >
+  const content = (
+    <>
       {swaped || displayedIcon}
       {text || children}
       {swaped && displayedIcon}
+    </>
+  );
+
+  const computedClasses = `${btn} ${
+    reversed ? btnRev : btnNormal
+  } ${className}`;
+
+  return asAnchor ? (
+    <a {...rest} className={computedClasses}>
+      {content}
     </a>
   ) : (
-    <button
-      {...rest}
-      className={`${btn} ${reversed ? btnRev : btnNormal} ${className}`}
-    >
-      {swaped || displayedIcon}
-      {text || children}
-      {swaped && displayedIcon}
+    <button {...rest} className={computedClasses}>
+      {content}
     </button>
   );
 };
