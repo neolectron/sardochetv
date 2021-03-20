@@ -6,13 +6,12 @@ import Button from '../component/Button/Button.jsx';
 const AddonPage = () => (
   <Layout className="items-center">
     <img src="sardoche.png" alt="logotype sardoche" className="my-12" />
-    <div className="flex gap-8">
-      <Card className="max-w-5xl">
+    <div className="flex flex-wrap justify-center gap-8">
+      <Card className="w-80 max-w-5xl">
         <div className="flex gap-8">
           <Icon name="chrome" className="h-16 sm:h-24" />
           <div className="flex-grow flex flex-col">
-            <div className="text-xl">Sardalert - Chrome</div>
-            <div className="flex-grow text-gray-600">(brave également)</div>
+            <div className="text-xl flex-grow">Sardalert Chrome</div>
             <Button
               asAnchor
               reversed
@@ -25,11 +24,11 @@ const AddonPage = () => (
         </div>
       </Card>
 
-      <Card className="max-w-5xl">
+      <Card className="w-80 max-w-5xl">
         <div className="flex gap-8">
           <Icon name="firefox" className="h-16 sm:h-24" />
           <div className="flex-grow flex flex-col">
-            <div className="text-xl flex-grow">Sardalert - Firefox</div>
+            <div className="text-xl flex-grow">Sardalert Firefox</div>
             <Button
               asAnchor
               reversed
