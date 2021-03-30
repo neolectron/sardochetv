@@ -24,7 +24,13 @@ const SoundPage = ({ videoList }) => {
           <Playlist list={videoList} onItemChange={setCurrent} />
         </div>
         <div className="flex items-center justify-center flex-grow">
-          <Player video={videoList[current]} />
+          {videoList.length === 0 ? (
+            <p className="text-white text-xl">
+              Pas de vidéos pour le moment :&#40;
+            </p>
+          ) : (
+            <Player video={videoList[current]} />
+          )}
         </div>
       </div>
     </Layout>
