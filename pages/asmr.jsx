@@ -2,10 +2,24 @@ import Layout from '../components/Layout/Layout.jsx';
 import Link from 'next/link';
 import Player from '../components/Player/Player.jsx';
 import Playlist from '../components/Playlist/Playlist.jsx';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 
 const SoundPage = ({ videoList }) => {
+  const { query, push } = useRouter();
   const [current, setCurrent] = useState(0);
+
+  useEffect(() => {
+    if (!query.video) return;
+
+    const index = videoList.findIndex((el) => el.videoId === query.video);
+    if (index < 0) {
+      push(`/asmr?video=${videoList[0].videoId}`);
+    } else {
+      setCurrent(index);
+    }
+  }, [query]);
+
   return (
     <Layout>
       <div className="flex h-12 m-2">
