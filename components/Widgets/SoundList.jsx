@@ -52,7 +52,7 @@ const SoundList = () => {
                   YouTube
                 </a>
                 <a
-                  href={`/asmr/${id}`}
+                  href={`/asmr?video=${id}`}
                   target="_blank"
                   className="px-2 text-blue-600 transform transform-scale hover:scale-110"
                 >
