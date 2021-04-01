@@ -11,7 +11,7 @@ const noop = () => {};
 const useApi = ({ onSuccess = noop, onError = noop }) => {
   const [session] = useSession();
   return useAsyncFn(
-    async (endpoint, options) =>
+    async (endpoint, options = {}) =>
       fetch(`${process.env.NEXT_PUBLIC_API_URL}${endpoint}`, {
         ...options,
         body: stringifyObject(options.body),
