@@ -18,6 +18,10 @@
   input {
     background: transparent;
   }
+
+  button:focus {
+    outline: none;
+  }
 }
 
 @layer components {
@@ -28,9 +32,15 @@
   .bg-orange {
     background: #ff9e3b;
   }
+
   .bg-blur {
     backdrop-filter: blur(5px);
   }
+
+  .bg-alternate:nth-child(even) {
+    @apply bg-white bg-opacity-10;
+  }
+
   .text-shadow {
     filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
