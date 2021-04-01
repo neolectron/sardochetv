@@ -27,7 +27,10 @@ const useApi = ({ onSuccess = noop, onError = noop }) => {
           }
           return res;
         })
-        .then((res) => res.json())
+        .then((res) => {
+          if (res.headers.get('Content-Type')?.includes('application/json'))
+            return res.json();
+        })
         .then((json) => {
           onSuccess(json);
           return json;
