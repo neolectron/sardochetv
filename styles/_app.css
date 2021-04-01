@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html,
+  body,
+  #__next {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  #__next {
+    background-image: linear-gradient(135deg, #684ca0 35%, #1c4ca0 100%);
+  }
+
+  input {
+    background: transparent;
+  }
+}
+
 @layer components {
   @import 'react-toastify/dist/ReactToastify.css';
 }
@@ -10,21 +28,9 @@
   .bg-orange {
     background: #ff9e3b;
   }
-}
-
-html,
-body,
-#__next {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-#__next {
-  background-image: linear-gradient(135deg, #684ca0 35%, #1c4ca0 100%);
-}
-
-@layer components {
+  .bg-blur {
+    backdrop-filter: blur(5px);
+  }
   .text-shadow {
     filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.8));
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
