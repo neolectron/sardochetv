@@ -21,6 +21,12 @@ const useApi = ({ onSuccess = noop, onError = noop }) => {
           ...(session?.access_token && { access_token: session.access_token }),
         },
       })
+        .then((res) => {
+          if (res.status >= 400 && res.status < 600) {
+            throw new Error(res.statusText);
+          }
+          return res;
+        })
         .then((res) => res.json())
         .then((json) => {
           onSuccess(json);
