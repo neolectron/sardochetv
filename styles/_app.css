@@ -26,6 +26,10 @@
 
 @layer components {
   @import 'react-toastify/dist/ReactToastify.css';
+  @import 'rc-slider/assets/index.css';
+  .rc-slider-mark-text {
+    @apply text-xl;
+  }
 }
 
 @layer utilities {

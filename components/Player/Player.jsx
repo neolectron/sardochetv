@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import Youtube from '../Youtube/Youtube.jsx';
 import Progress from '../Progress/Progress.jsx';
+import Slider from '../Slider/Slider.jsx';
 import { useAudio } from 'react-use';
 import { useState } from 'react';
 
@@ -31,22 +32,36 @@ const Player = ({ video }) => {
   return (
     <div className="flex flex-col p-4 bg-black bg-blur bg-opacity-60 text-white">
       <div className="text-xl font-bold ">{video.title}</div>
-      <Youtube
-        className="mt-2"
-        videoId={video.videoId}
-        opts={{ playerVars: { mute: 1 } }}
-        onStateChange={handleYoutubeStateChange}
-        onPlay={controls.play}
-        onPause={controls.pause}
-        onEnd={controls.pause}
-      />
-      {audio}
-      <Progress
-        max={duration}
-        value={state.time}
-        valueBuffer={getBufferedValue(ref.current)}
-      />
-      {/* <pre>{JSON.stringify(state, null, 2)}</pre> */}
+      <div className="flex">
+        <div>
+          <Youtube
+            className="mt-2"
+            videoId={video.videoId}
+            opts={{ playerVars: { mute: 1 } }}
+            onStateChange={handleYoutubeStateChange}
+            onPlay={controls.play}
+            onPause={controls.pause}
+            onEnd={controls.pause}
+          />
+          {audio}
+          <Progress
+            max={duration}
+            value={state.time}
+            valueBuffer={getBufferedValue(ref.current)}
+          />
+        </div>
+        <div className="p-4 border border-white border-opacity-10">
+          <Slider
+            vertical
+            min={0}
+            max={100}
+            step={5}
+            marks={{ 0: '🔇', 100: '🔊' }}
+            defaultValue={100}
+            onChange={(vol) => controls.volume(vol / 100)}
+          />
+        </div>
+      </div>
     </div>
   );
 };
