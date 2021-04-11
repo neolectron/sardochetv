@@ -37,7 +37,8 @@ const SoundPage = ({ videoList }) => {
         <div className="hidden w-64 lg:block">
           <Playlist list={videoList} onItemChange={setCurrent} />
         </div>
-        <div className="flex items-center justify-center flex-grow">
+        <div className="flex items-center justify-center flex-grow ">
+          <div className="bg-black bg-blur bg-opacity-60 text-white">
           {videoList.length === 0 ? (
             <p className="text-white text-xl">
               Pas de vidéos pour le moment :&#40;
@@ -46,6 +47,7 @@ const SoundPage = ({ videoList }) => {
             <Player video={videoList[current]} />
           )}
         </div>
+      </div>
       </div>
     </Layout>
   );

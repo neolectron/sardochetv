@@ -30,7 +30,7 @@ const Player = ({ video }) => {
   };
 
   return (
-    <div className="flex flex-col p-4 bg-black bg-blur bg-opacity-60 text-white">
+    <div className="flex flex-col p-4">
       <div className="text-xl font-bold ">{video.title}</div>
       <div className="flex">
         <div>
