@@ -17,7 +17,7 @@ const Menu = ({ children = null, user = null }) => {
   const openedClass = open ? 'block' : 'hidden';
 
   const currentHour = new Date().getHours();
-  const isDay = currentHour > 7 && currentHour < 21;
+  const isDay = currentHour > 7 && currentHour < 20;
   const backgroundDayTime = isDay ? '/bg.png' : '/bg-night.png';
 
   return (
@@ -32,9 +32,9 @@ const Menu = ({ children = null, user = null }) => {
         <Icon name="burger" height="32px" />
       </button>
       <div
-        className={`h-full flex flex-col justify-between font-semibold text-xl overflow-hidden text-gray-900 md:flex ${openedClass}`}
+        className={`h-full flex flex-col font-semibold text-xl overflow-hidden text-gray-900 md:flex ${openedClass}`}
       >
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-grow">
           <div
             className="flex items-center justify-center bg-cover h-28"
             style={{ backgroundImage: `url(${backgroundDayTime})` }}
