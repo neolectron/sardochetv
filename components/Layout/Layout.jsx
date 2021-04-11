@@ -9,6 +9,7 @@ const Layout = ({
   checkauth = false,
   children,
   className = '',
+  menuItems = null,
 }) => {
   const [session, loading] = useSession();
 
@@ -43,9 +44,18 @@ const Layout = ({
     <div className="flex flex-col w-full h-full md:flex-row">
       {menu && (
         <Menu user={session?.user}>
-          <Menu.Item href="/admin/addons" icon="addon" text="Sardalert" />
-          <Menu.Item href="/admin/sound" icon="soundwave" text="Sardsound" />
-          <Menu.Item href="/admin/bots" icon="bot" text="Sardbot" />
+          {menuItems && menuItems}
+          {!menuItems && checkauth && (
+            <>
+              <Menu.Item href="/admin/addons" icon="addon" text="Sardalert" />
+              <Menu.Item
+                href="/admin/sound"
+                icon="soundwave"
+                text="Sardsound"
+              />
+              <Menu.Item href="/admin/bots" icon="bot" text="Sardbot" />
+            </>
+          )}
         </Menu>
       )}
       <main
