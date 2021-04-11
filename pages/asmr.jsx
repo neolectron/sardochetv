@@ -21,23 +21,11 @@ const SoundPage = ({ videoList }) => {
     }
   }, [query]);
 
+  const menuItems = <Playlist list={videoList} onItemChange={setCurrent} />;
+
   return (
-    <Layout>
-      <div className="flex h-12 m-2">
-        <Link href="/">
-          <a className="inline-block h-full">
-            <img
-              src="/sardoche.png"
-              alt="logotype sardoche"
-              className="h-full"
-            />
-          </a>
-        </Link>
-      </div>
+    <Layout menu menuItems={menuItems}>
       <div className="flex flex-grow">
-        <div className="hidden w-64 lg:block">
-          <Playlist list={videoList} onItemChange={setCurrent} />
-        </div>
         <div className="flex items-center justify-center flex-grow ">
           <div className="bg-black bg-blur bg-opacity-60 text-white">
             {videoList.length === 0 ? (
