@@ -41,7 +41,7 @@ const Layout = ({
   }
 
   return (
-    <div className="flex flex-col w-full h-full md:flex-row">
+    <div className="relative flex flex-col w-full h-full md:flex-row">
       {menu && (
         <Menu user={session?.user}>
           {menuItems && menuItems}
@@ -62,10 +62,10 @@ const Layout = ({
         className={`relative flex-1 flex-shrink-0 flex flex-col overflow-y-auto ${className}`}
       >
         {children}
-        <div className="absolute top-10 right-10">
-          <ToastContainer progressClassName="bg-orange" />
-        </div>
       </main>
+      <div className="absolute top-10 right-10">
+        <ToastContainer progressClassName="bg-orange" />
+      </div>
     </div>
   );
 };
