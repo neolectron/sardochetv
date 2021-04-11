@@ -4,6 +4,7 @@ import Player from '../components/Player/Player.jsx';
 import Playlist from '../components/Playlist/Playlist.jsx';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Controls from '../components/Controls/Controls.jsx';
 
 const SoundPage = ({ videoList }) => {
   const { query, push } = useRouter();
@@ -39,15 +40,22 @@ const SoundPage = ({ videoList }) => {
         </div>
         <div className="flex items-center justify-center flex-grow ">
           <div className="bg-black bg-blur bg-opacity-60 text-white">
-          {videoList.length === 0 ? (
-            <p className="text-white text-xl">
-              Pas de vidéos pour le moment :&#40;
-            </p>
-          ) : (
-            <Player video={videoList[current]} />
-          )}
+            {videoList.length === 0 ? (
+              <p className="text-white text-xl">
+                Pas de vidéos pour le moment :&#40;
+              </p>
+            ) : (
+              <>
+                <Player video={videoList[current]} />
+                <Controls
+                  count={videoList.length}
+                  current={current}
+                  onItemChange={setCurrent}
+                />
+              </>
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </Layout>
   );
