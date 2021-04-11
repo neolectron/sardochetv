@@ -1,10 +1,10 @@
 const Playlist = ({ list = [], onItemChange }) => (
-  <div className="flex flex-col h-full">
-    {list.map((video) => (
+  <div className="flex flex-col">
+    {list.map((video, index) => (
       <div
         key={video.videoId}
-        className="flex p-2  text-white transition-transform transform hover:scale-110"
-        onClick={() => onItemChange(video.videoId)}
+        className="flex p-4 transition-transform transform hover:scale-110"
+        onClick={() => onItemChange(index)}
       >
         <img
           src={video.thumbnail_url}
