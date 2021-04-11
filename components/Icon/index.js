@@ -6,3 +6,5 @@ export { default as logout } from './icons/logout.svg';
 export { default as bot } from './icons/bot.svg';
 export { default as soundwave } from './icons/soundwave.svg';
 export { default as addon } from './icons/addon.svg';
+export { default as left } from './icons/left.svg';
+export { default as right } from './icons/right.svg';
