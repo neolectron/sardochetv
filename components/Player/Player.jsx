@@ -29,13 +29,17 @@ const Player = ({ video }) => {
     if (!state.duration) setDuration(target.getDuration());
   };
 
+  const handleWheel = ({ deltaY }) =>
+    controls.volume(state.volume - deltaY / 1000);
+
   return (
-    <div className="flex flex-col p-4">
-      <div className="text-xl font-bold ">{video.title}</div>
+    <div className="flex flex-col px-8">
+      {audio}
+      <div className="text-xl font-bold py-4">{video.title}</div>
       <div className="flex">
-        <div>
+        <div className="w-full h-full">
           <Youtube
-            className="mt-2"
+            containerClassName="yt-container"
             videoId={video.videoId}
             opts={{ playerVars: { mute: 1 } }}
             onStateChange={handleYoutubeStateChange}
@@ -43,19 +47,19 @@ const Player = ({ video }) => {
             onPause={controls.pause}
             onEnd={controls.pause}
           />
-          {audio}
           <Progress
             max={duration}
             value={state.time}
             valueBuffer={getBufferedValue(ref.current)}
           />
         </div>
-        <div className="p-4 border border-white border-opacity-10">
+        <div className="p-4" onWheel={handleWheel}>
           <Slider
             vertical
             min={0}
             max={100}
             step={5}
+            value={state.volume * 100}
             marks={{ 0: '🔇', 100: '🔊' }}
             defaultValue={100}
             onChange={(vol) => controls.volume(vol / 100)}
