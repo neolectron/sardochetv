@@ -25,24 +25,33 @@ const SoundPage = ({ videoList }) => {
 
   return (
     <Layout menu menuItems={menuItems}>
-      <div className="flex flex-grow">
-        <div className="flex items-center justify-center flex-grow ">
-          <div className="bg-black bg-blur bg-opacity-60 text-white">
-            {videoList.length === 0 ? (
-              <p className="text-white text-xl">
-                Pas de vidéos pour le moment :&#40;
-              </p>
-            ) : (
-              <>
-                <Player video={videoList[current]} />
-                <Controls
-                  count={videoList.length}
-                  current={current}
-                  onItemChange={setCurrent}
-                />
-              </>
-            )}
-          </div>
+      <div className="flex justify-center h12 p-8">
+        <Link href="/asmr">
+          <a className="relative">
+            <img src="/sardoche.png" alt="logotype sardoche" />
+            <div className="text-orange pulse text-shadow font-bold text-2xl absolute bottom-0 -right-8">
+              ASMR
+            </div>
+          </a>
+        </Link>
+      </div>
+      <div className="flex justify-center items-start py-8 flex-grow">
+        <div
+          style={{ maxWidth: '900px' }}
+          className="bg-black bg-blur bg-opacity-40 text-white text-xl w-full sm:w-3/4"
+        >
+          {videoList.length === 0 ? (
+            <p>Pas de vidéos pour le moment :&#40;</p>
+          ) : (
+            <>
+              <Player video={videoList[current]} />
+              <Controls
+                count={videoList.length}
+                current={current}
+                onItemChange={setCurrent}
+              />
+            </>
+          )}
         </div>
       </div>
     </Layout>
