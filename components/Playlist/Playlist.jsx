@@ -3,7 +3,7 @@ const Playlist = ({ list = [], onItemChange }) => (
     {list.map((video, index) => (
       <div
         key={video.videoId}
-        className="flex p-4 transition-transform transform hover:scale-110"
+        className="flex p-4 transition-transform transform hover:scale-110 cursor-pointer"
         onClick={() => onItemChange(index)}
       >
         <img
