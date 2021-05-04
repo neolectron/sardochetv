@@ -12,6 +12,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.16",
+    "graphql": "^15.5.0",
     "next": "^10.0.7",
     "next-auth": "^3.13.3",
     "rc-slider": "^9.7.2",
