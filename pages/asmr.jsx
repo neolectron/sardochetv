@@ -38,7 +38,7 @@ const SoundPage = ({ videoList }) => {
       <div className="flex justify-center items-start py-8 flex-grow">
         <div
           style={{ maxWidth: '900px' }}
-          className="bg-black bg-blur bg-opacity-40 text-white text-xl w-full sm:w-3/4"
+          className="bg-black bg-blur bg-opacity-40 text-white text-xl w-full sm:w-5/6"
         >
           {videoList.length === 0 ? (
             <p>Pas de vidéos pour le moment :&#40;</p>
