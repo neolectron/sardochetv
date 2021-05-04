@@ -2,26 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  html,
-  body,
-  #__next {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-  }
+html,
+body,
+#__next {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
 
-  #__next {
-    background-image: linear-gradient(135deg, #684ca0 35%, #1c4ca0 100%);
-  }
+#__next {
+  background-image: linear-gradient(135deg, #684ca0 35%, #1c4ca0 100%);
+}
 
-  input {
-    background: transparent;
-  }
+input {
+  background: transparent;
+}
 
-  button:focus {
-    outline: none;
-  }
+button:focus {
+  outline: none;
 }
 
 @layer components {
