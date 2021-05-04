@@ -3,6 +3,7 @@ import Spinner from '../Spinner/Spinner.jsx';
 import Button from '../Button/Button.jsx';
 import { useSession, signIn } from 'next-auth/client';
 import { ToastContainer } from 'react-toastify';
+import { useRouter } from 'next/router';
 
 const Layout = ({
   menu = false,
@@ -12,6 +13,7 @@ const Layout = ({
   menuItems = null,
 }) => {
   const [session, loading] = useSession();
+  const router = useRouter();
 
   if (checkauth && loading) {
     return (
@@ -29,7 +31,12 @@ const Layout = ({
 
   if (checkauth && !session?.user) {
     return (
-      <main className="flex items-center justify-center w-full h-full">
+      <main className="flex flex-col items-center justify-center w-full h-full">
+        {router.query?.error ? (
+          <div className="text-red-400 font-bold rounded-md m-4 p-4 bg-black bg-opacity-30">
+            {router.query.error}
+          </div>
+        ) : null}
         <Button
           reversed
           icon="twitch"
