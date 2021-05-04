@@ -4,6 +4,10 @@
   "version": "1.0.0",
   "author": "neolectron",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/neolectron/sardochetv.git"
+  },
   "scripts": {
     "export": "next export -o .static",
     "inspect": "NODE_OPTIONS='--inspect' next dev",
