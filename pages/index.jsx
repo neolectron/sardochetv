@@ -15,7 +15,7 @@ export async function getStaticProps() {
     query: getLive('sardoche'),
   });
 
-  await writeFile('./public/live.json', JSON.stringify(data), {
+  await writeFile('./public/live.json', JSON.stringify(data.live), {
     encoding: 'utf-8',
   });
 
