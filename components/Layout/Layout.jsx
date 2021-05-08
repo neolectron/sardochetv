@@ -4,9 +4,11 @@ import Button from '../Button/Button.jsx';
 import { useSession, signIn } from 'next-auth/client';
 import { ToastContainer } from 'react-toastify';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const Layout = ({
   menu = false,
+  title = '',
   checkauth = false,
   children,
   className = '',
@@ -15,9 +17,14 @@ const Layout = ({
   const [session, loading] = useSession();
   const router = useRouter();
 
+  const pageTitle = 'Sardoche.tv';
+
   if (checkauth && loading) {
     return (
       <main className="flex items-center justify-center w-full h-full">
+        <Head>
+          <title>{`${pageTitle} - Loading`}</title>
+        </Head>
         <Spinner
           type="Puff"
           color="#00BFFF"
@@ -32,6 +39,9 @@ const Layout = ({
   if (checkauth && !session?.user) {
     return (
       <main className="flex flex-col items-center justify-center w-full h-full">
+        <Head>
+          <title>{`${pageTitle} - Login`}</title>
+        </Head>
         {router.query?.error ? (
           <div className="text-red-400 font-bold rounded-md m-4 p-4 bg-black bg-opacity-30">
             {router.query.error}
@@ -49,6 +59,12 @@ const Layout = ({
 
   return (
     <div className="relative flex flex-col w-full h-full md:flex-row">
+      <Head>
+        <title>
+          {pageTitle}
+          {title ? ' - ' + title : ''}
+        </title>
+      </Head>
       {menu && (
         <Menu user={session?.user}>
           {menuItems && menuItems}
