@@ -18,7 +18,9 @@ const useApi = ({ onSuccess = noop, onError = noop }) => {
         headers: {
           Accept: 'application/json',
           ...options.headers,
-          ...(session?.access_token && { access_token: session.access_token }),
+          ...(session?.access_token && {
+            Authorization: `Basic ${session.access_token}`,
+          }),
         },
       })
         .then((res) => {
