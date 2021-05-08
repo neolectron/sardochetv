@@ -24,7 +24,7 @@ const SoundPage = ({ videoList }) => {
   const menuItems = <Playlist list={videoList} onItemChange={setCurrent} />;
 
   return (
-    <Layout menu={Boolean(videoList.length)} menuItems={menuItems}>
+    <Layout menu={Boolean(videoList.length)} menuItems={menuItems} title="ASMR">
       <div className="flex justify-center h12 p-8">
         <Link href="/asmr">
           <a className="relative">

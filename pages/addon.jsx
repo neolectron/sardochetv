@@ -4,7 +4,7 @@ import Icon from '../components/Icon/Icon.jsx';
 import Button from '../components/Button/Button.jsx';
 
 const AddonPage = () => (
-  <Layout className="items-center">
+  <Layout className="items-center" title="Site Officiel">
     <img src="sardoche.png" alt="logotype sardoche" className="my-12" />
     <div className="flex flex-wrap justify-center gap-8">
       <Card className="w-80 max-w-5xl">
