@@ -6,20 +6,36 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Controls from '../components/Controls/Controls.jsx';
 
-const SoundPage = ({ videoList }) => {
+const fetchThumbnail = (videoID) =>
+  fetch(
+    `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${videoID}&format=json`
+  )
+    .then((res) => res.json())
+    .then((json) => ({ ...json, videoID }));
+
+const SoundPage = () => {
   const { query, push } = useRouter();
   const [current, setCurrent] = useState(0);
+  const [videoList, setVideoList] = useState([]);
+
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/sound`)
+      .then((res) => res.json())
+      .then((IDlist) => IDlist.map(fetchThumbnail))
+      .then((fetchAll) => Promise.all(fetchAll))
+      .then((resVideoList) => setVideoList(resVideoList))
+      .catch(console.error);
+  }, []);
 
   useEffect(() => {
     if (!query.video) return;
-
-    const index = videoList.findIndex((el) => el.videoId === query.video);
+    const index = videoList.findIndex((el) => el.videoID === query.video);
     if (index < 0) {
-      push(`/asmr?video=${videoList[0].videoId}`);
+      push(`/asmr?video=${videoList[0].videoID}`);
     } else {
       setCurrent(index);
     }
-  }, [query]);
+  }, [query, push, videoList]);
 
   const menuItems = <Playlist list={videoList} onItemChange={setCurrent} />;
 
@@ -59,19 +75,3 @@ const SoundPage = ({ videoList }) => {
 };
 
 export default SoundPage;
-
-export async function getStaticProps() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/sound`);
-  const idList = await res.json();
-  const fetchAllData = idList.map((id) =>
-    fetch(
-      `https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${id}&format=json`
-    )
-      .then((res) => res.json())
-      .then((json) => ({ ...json, videoId: id }))
-  );
-
-  const videoList = await Promise.all(fetchAllData);
-
-  return { props: { videoList: videoList } };
-}

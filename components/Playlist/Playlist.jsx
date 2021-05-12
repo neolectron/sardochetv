@@ -1,8 +1,8 @@
 const Playlist = ({ list = [], onItemChange }) => (
   <div className="flex flex-col">
     {list.map((video, index) => (
-      <div
-        key={video.videoId}
+      <button
+        key={video.videoID}
         className="flex p-4 transition-transform transform hover:scale-110 cursor-pointer"
         onClick={() => onItemChange(index)}
       >
@@ -13,8 +13,8 @@ const Playlist = ({ list = [], onItemChange }) => (
           className="object-cover w-20 h-20"
           alt="video thumnail"
         />
-        <div className="pl-4 text-sm">{video.title}</div>
-      </div>
+        <div className="pl-4 text-sm font-bold">{video.title}</div>
+      </button>
     ))}
   </div>
 );

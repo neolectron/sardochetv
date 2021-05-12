@@ -12,7 +12,7 @@ const getBufferedValue = (audioRef) => {
 
 const Player = ({ video }) => {
   const [audio, state, controls, ref] = useAudio({
-    src: `${process.env.NEXT_PUBLIC_API_URL}/data/${video.videoId}.flac`,
+    src: `${process.env.NEXT_PUBLIC_API_URL}/data/${video.videoID}.flac`,
     preload: 'metadata',
     className: 'w-full border-black border-2',
   });
@@ -40,7 +40,7 @@ const Player = ({ video }) => {
         <div className="w-full h-full">
           <Youtube
             containerClassName="yt-container"
-            videoId={video.videoId}
+            videoId={video.videoID}
             opts={{ playerVars: { mute: 1 } }}
             onStateChange={handleYoutubeStateChange}
             onPlay={controls.play}
