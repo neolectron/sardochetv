@@ -28,7 +28,7 @@ const SoundPage = () => {
   }, []);
 
   useEffect(() => {
-    if (!query.video) return;
+    if (!query.video || videoList.length === 0) return;
     const index = videoList.findIndex((el) => el.videoID === query.video);
     if (index < 0) {
       push(`/asmr?video=${videoList[0].videoID}`);
